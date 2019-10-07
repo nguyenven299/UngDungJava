@@ -64,7 +64,7 @@ public class Bai1 extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(30, 144, 255));
-		panel_2.setBounds(0, 47, 447, 233);
+		panel_2.setBounds(0, 47, 497, 233);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -147,12 +147,12 @@ public class Bai1 extends JFrame {
 		
 		JCheckBox chckbxNewsPapers = new JCheckBox("News Papers");
 		chckbxNewsPapers.setBackground(new Color(30, 144, 255));
-		chckbxNewsPapers.setBounds(184, 54, 87, 23);
+		chckbxNewsPapers.setBounds(206, 55, 116, 23);
 		panel_2.add(chckbxNewsPapers);
 		
 		JCheckBox chckbxJournalsAndMagazines = new JCheckBox("Journals and Magazines");
 		chckbxJournalsAndMagazines.setBackground(new Color(30, 144, 255));
-		chckbxJournalsAndMagazines.setBounds(272, 54, 139, 23);
+		chckbxJournalsAndMagazines.setBounds(324, 55, 167, 23);
 		panel_2.add(chckbxJournalsAndMagazines);
 		
 		TextArea txtArRemarks = new TextArea();
@@ -278,16 +278,12 @@ public class Bai1 extends JFrame {
 				
 				try
 				{
-					String sql = "DELETE INTO BooksSuppliers VALUES (?,?,?,?,?,?)";
+					String sql = "DELETE FROM BooksSuppliers WHERE id = ?";
 					conn =DriverManager.getConnection(url,user,password);
 					preStmmt = conn.prepareStatement(sql);
 
-					preStmmt.setString(1, strName);
-					preStmmt.setString(2, strType);
-					preStmmt.setString(3, strAddress);
-					preStmmt.setString(4, strContact);
-					preStmmt.setString(5, strEmail);
-					preStmmt.setString(6, strRemarks);
+					preStmmt.setString(1, txtID.getText());
+					
 					row = preStmmt.executeUpdate();
 					System.out.println("So dong delete" +row);
 					conn.close();
@@ -324,9 +320,22 @@ public class Bai1 extends JFrame {
 				String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=DBBooksSuppliers;" + "integratedSecurity=true";
 				String user = "sa";
 				String password = "123";
+
+				if (chckbxBooks.isSelected())
+				{
+					strType = "Books";
+				}
+				else if (chckbxNewsPapers.isSelected())
+				{
+					strType ="News Papers";
+				}
+				else if (chckbxJournalsAndMagazines.isSelected())
+				{
+					strType = "Journals and Magazines";
+				}
 				try
 				{
-					String sql = "UPDATE INTO BooksSuppliers VALUES (?,?,?,?,?,?)";
+					String sql = "UPDATE BooksSuppliers SET name=?,type=?,address=?,contact=?,email=?,remarks=? WHERE id=? ";
 					conn =DriverManager.getConnection(url,user,password);
 					preStmmt = conn.prepareStatement(sql);
 					
@@ -336,6 +345,7 @@ public class Bai1 extends JFrame {
 					preStmmt.setString(4, strContact);
 					preStmmt.setString(5, strEmail);
 					preStmmt.setString(6, strRemarks);
+					preStmmt.setString(7, txtID.getText());
 					row = preStmmt.executeUpdate();
 					System.out.println("So dong update" +row);
 					conn.close();
