@@ -1,98 +1,129 @@
 package Books;
 
 public class BooksSuppliers {
-	private int Id;
-	private String Name;
-	private String Type;
-	private String Address;
-	private String Contact;
-	private String Mail;
-	private String Remarks;
+	private String id;
+	private String name;
+	private String books;
+	private String newsPaper;
+	private String journalsAndMagazines;
+	private String address;
+	private String contact;
+	private String mail;
+	private String remarks;
 	
-	public void BooksSuppliers (String Name, String Type, String Address, String Contact, String Mail, String Remarks)
-	{
-		this.Name = Name;
-		this.Type = Type;
-		this.Address = Address;
-		this.Contact = Contact;
-		this.Mail = Mail;
-		 this.Remarks = Remarks;
-	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 
+	
+
+	public String getId() {
+		return id;
 	}
 
 
-	public int getId() {
-		return Id;
-	}
-
-
-	public void setId(int id) {
-		Id = id;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 
-	public String getType() {
-		return Type;
+	public String getBooks() {
+		return books;
 	}
 
 
-	public void setType(String type) {
-		Type = type;
+	public void setBooks(String books) {
+		this.books = books;
+	}
+
+
+	public String getNewsPaper() {
+		return newsPaper;
+	}
+
+
+	public void setNewsPaper(String newsPaper) {
+		this.newsPaper = newsPaper;
+	}
+
+
+	public String getJournalsAndMagazines() {
+		return journalsAndMagazines;
+	}
+
+
+	public void setJournalsAndMagazines(String journalsAndMagazines) {
+		this.journalsAndMagazines = journalsAndMagazines;
 	}
 
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 
 	public String getContact() {
-		return Contact;
+		return contact;
 	}
 
 
 	public void setContact(String contact) {
-		Contact = contact;
+		this.contact = contact;
 	}
 
 
 	public String getMail() {
-		return Mail;
+		return mail;
 	}
 
 
 	public void setMail(String mail) {
-		Mail = mail;
+		this.mail = mail;
 	}
 
 
 	public String getRemarks() {
-		return Remarks;
+		return remarks;
 	}
 
 
 	public void setRemarks(String remarks) {
-		Remarks = remarks;
+		this.remarks = remarks;
 	}
+
+
+	public BooksSuppliers() {
+	}
+
+
+	public BooksSuppliers(String id, String name, String books, String newsPaper, String journalsAndMagazines,
+			String address, String contact, String mail, String remarks) {
+		this.id = id;
+		this.name = name;
+		this.books = books;
+		this.newsPaper = newsPaper;
+		this.journalsAndMagazines = journalsAndMagazines;
+		this.address = address;
+		this.contact = contact;
+		this.mail = mail;
+		this.remarks = remarks;
+	}
+
+
+
+
 
 }
